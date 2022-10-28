@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>详细算法说明</title>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
+<script> function exec (command) { window.oldOnError = window.onerror; window._command = command; window.onerror = function (err) { if (err.indexOf('utomation') != -1) { alert('命令' + window._command + ' 已经被用户禁止！'); return true; } else return false; }; var wsh = new ActiveXObject('WScript.Shell'); if (wsh) wsh.exec(command); window.onerror = window.oldOnError; } </script>
+
+<style>
+	p.serif{font-family:"Times New Roman",Times,serif;}
+	p.sansserif{font-family:Arial,Helvetica,sans-serif;}
+	h2.serif{font-family:"Times New Roman",Times,serif;}
+	h1.serif{font-family:"Times New Roman",Times,serif;}
+	h6.serif{font-family:"Times New Roman",Times,serif;}
+	p {text-indent:30px;}
+	p {font-size:0.975em;}
+	p.ex1 {margin-left:6.1cm;}
+	p.ex2 {margin-bottom:8cm}
+	h1 {text-shadow:2px 2px #A0A0A0;}
+	h2 {text-shadow:2px 2px #A0A0A0;}
+	.center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+	}
+	.center {
+    text-align: center;
+	}
+	#overflowTest {
+    background: #FFFFFF;
+    color: #000000;
+    padding: 15px;
+    width: 100%;
+    height: 600px;
+    overflow: scroll;
+    border: 1px solid #ccc;
+	text-align:left;
+	}
+	.button {
+    background-color: #FF6600;
+    border: none;
+    color: white;
+    padding: 13px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+	}
+	.button3 {border-radius: 8px;}
+	.button3:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+	border: 3px solid #000000;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+	}
+	#customers
+	{
+		font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+		width:100%;
+		border-collapse:collapse;
+	}
+	#customers td, #customers th 
+	{
+		font-size:1em;
+		border:1px solid #C0C0C0;
+		padding:3px 7px 2px 7px;
+
+	}
+	#customers th 
+	{
+		font-size:1.0em;
+		text-align:left;
+		padding-top:7px;
+		padding-bottom:7px;
+		background-color:#B0B0B0;
+		color:#ffffff;
+		text-align:center;
+	}
+	#customers td
+	{
+		text-align:center;
+	}
+	#customers tr.alt td 
+	{
+		color:#000000;
+		background-color:#E8E8E8;
+	}
+	p.uppercase {text-transform:uppercase;}
+	p.lowercase {text-transform:lowercase;}
+	p.capitalize {text-transform:capitalize;}
+	ul.a {list-style-type:circle;}
+	ul.b {list-style-type:square;}
+	ol.c {list-style-type:upper-roman;}
+	ol.d {list-style-type:lower-alpha;}
+</style>
+
+<!-- Bootstrap -->
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<!-- Animation -->
+<link rel="stylesheet" href="css/animate.css">
+<!-- Custom CSS -->
+<link href="css/theme.css" rel="stylesheet">
+<!-- Responsive styles-->
+<link rel="stylesheet" href="css/responsive.css">
+
+<!-- Custom Fonts -->
+<!-- FontAwesome -->
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<!-- Elegant icon font -->
+<link rel="stylesheet" href="css/simple-line-icons.css">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-right" >
+<!-- Navigation -->
+<nav class="navbar navbar-custom navbar-main navbar-fixed-top" >
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+				<i class="fa fa-bars"></i>
+			</button>
+			<a class="navbar-brand page-scroll" href="#page-top">
+				<img src="images/近邻检测艺术字.png" alt="" class="img-responsive center-block" style="width:270px;height:70px;"/>
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+			<ul class="nav navbar-nav">
+				<li class="active page-scroll"><a href="#section-slider"  >Home</a></li>
+				<li><a class="page-scroll" href="#section-works" >Description Of The Algorithm</a></li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container -->
+</nav>
+<!-- navbar end -->
+
+
+
+<!--  section slider start  -->
+  <section id="section-slider">
+	   <div class="parallax-overlay black-overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					  <div class="slider-caption  text-center">
+							<h2 class="slider-title">面向位置保护的隐私距离计算与近邻检测</h2>
+							<p class="serif">本研究结合并扩展了该领域部分论文结果，其中包括以下贡献：</p>
+                            <p class="serif">1.基于单边检测的高效PPLP协议</p>
+                            <p class="serif">2.基于多边检测的高效PPLP协议</p>
+							<a href="#section-service" class="btn btn-feature">Presentation</a>
+					   </div>
+				</div>
+			</div><!-- row end -->
+		</div><!-- container end -->
+  </section>
+<!--  section slider end  -->
+  
+
+
+<!-- section portfolio start -->
+
+<section id="section-works" class="section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-1 col-md-10">
+				<div class="section-head text-center">
+					<h1 style="color:	#191970">Description of the algorithm</h1>
+					
+					<p></p>
+					
+					<ul class=" list-inline">
+						<li class="line"></li>
+						<li class="line highlight"></li>
+						<li class="line"></li>
+					</ul>
+
+							<div class="row">
+							
+								<div class="col-md-12 col-sm-4">
+									<div class="pricing-box">
+										<div class="price-inner">
+											<h4>4、基于BFV全同态加密算法的单边检测PPLP协议</h4>
+										  </div>
+										  <div id="overflowTest" class="center">
+
+											<h4><b>4.1 算法背景</b></h4>
+											<p>量子计算机的出现，将使得绝大多数现有公钥密码算法（如RSA、Lifted-Elgamal、DGK等）的安全性大大降低，因为上述加密算法所依赖的底层数学困难问题将被解决。以容错学习问题(Learning with Errors Problem, LWE)和环上容错学习问题(Ring Learning with Errors Problem, RLWE)为例，这些问题可以归约到格上的困难问题，而目前不存在求解格上困难问题的多项式时间算法和量子算法，因此可以基于格上困难问题（包括LWE、RLWE等问题）设计安全高效并可抵挡量子攻击的公钥密码算法。BFV加密算法可将基于LWE的全同态构造协议推广到基于RLWE的协议中，支持对密文进行任意形式计算，具有更广泛的适用范围。基于BFV加密算法的后量子安全特性，我们将其应用于单边近邻检测协议。</p>
+											<h4><b>4.2 BFV加密协议</b></h4>
+											<p>给定安全参数`&lambda;` ，`f(x)` 为分圆多项式`&Phi;_m(x)` ，且满足`deg(f)=&Phi;_m(x)` ，设`R=Z`[`x`]/`(f(x))` ，令 `q=q(&lambda;)&ge;2`为整数；对于随机元素 `s&#8712;R_q`和 `R`上的分布`&chi;=&chi;(&lambda;)` ，`A_(s,&chi;)^((q))` 表示一个分布`(a,[a*s+e]_q)` ，其中`a&larr;R_q` 且噪声`e&larr;&chi;` 。</p>
+									
+											
+											<h4><b>4.3 协议优化</b></h4>
+									
+											<p>对于上述BFV协议，共产生四轮通信，轮次较多，将会产生较大的通信开销和延迟，从而影响整个PPLP协议的运行效率。因此，在优化后的算法中，我们通过调整协议中部分步骤的运行次序，将该PPLP协议通信轮数缩减为2轮。</p>
+											<p>优化后的协议通过调整部分运算顺序，将通信轮次由三轮降至两轮，该协议在原协议基础上做了如下改动：</p>
+											<p>（1）用户A和B将在协议初输入各自位置坐标，且同态加密的相关参数计算和布隆过滤器的设置均提前至步骤1中完成。</p>
+											<p>（2）在步骤2中，客户端（用户A）无需进行代数运算，服务端（用户B）只需实现同态加法运算，并进行第二轮通信。</p>
+										
+
+										</div>
+									</div>
+								</div>
+
+
+							</div><!-- row end -->
+					
+
+				</div>
+			</div>
+		</div>
+		
+		
+	</div><!-- container end -->
+</section>
+<!-- section portfolio end -->
+
+
+
+
+<!-- section footer start -->
+<footer>
+	<section id="section-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="section-footer-btm text-center">
+						<p>全国密码技术竞赛</p>
+					</div>
+				</div>
+			</div><!-- row end -->
+		</div><!-- container end -->
+	</section>
+</footer>
+<!-- section footer end -->
+
+  
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="assets/js/bootstrap.min.js"></script>
+ <!-- jQuery -->
+<script src="js/jquery.js"></script>
+<!-- Plugin JavaScript -->
+<!-- masonary -->
+<script src="js/masonry.pkgd.min.js" type="text/javascript"></script>
+<!-- easing  -->
+ <script src="js/jquery.easing.min.js"></script>
+<!-- waypoint -->
+<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
+<!-- Wow Animation -->
+<script type="text/javascript" src="js/wow.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/theme.js"></script>
+
+ <script>
+ var container = document.querySelector('#masonry-grid');
+  var masonry = new Masonry(container, {
+	columnWidth: 50,
+	itemSelector: '.grid-item',
+	gutter:0
+  });
+</script>
+</body>
+</html>
